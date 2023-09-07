@@ -6,106 +6,12 @@ import { makeStyles } from '@mui/styles';
 import { Box, Grid, Typography, Card, CardHeader, CardContent } from '@mui/material';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { CopyAll } from '@mui/icons-material';
+import './PdfTextExtractor.css'
 
-const useStyles = makeStyles({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '1rem 0rem 5rem 0rem',
-    minHeight: '70vh',
-
-  },
-  title: {
-    color: '#fff',
-  },
-  box1: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  input: {
-    height: 'auto !important',
-    maxHeight: '30px !important',
-    padding: '7.5px 17px !important',
-  },
-  extractedtext: {
-    color: '#fff'
-  },
-  btn: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    color: '#fff !important',
-    height: 36,
-    padding: '0 30px',
-    transform: '0.5s',
-    marginBottom: '2',
-    '&:hover': {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      boxShadow: '0 8px 5px 2px rgba(255, 105, 135, .3)',
-    },
-  },
-
-  btnExtract: {
-    background: 'linear-gradient(45deg, #00BABB 30%, #038EFD 90%)',
-    border: 0,
-    borderRadius: 3,
-    color: '#fff !important',
-    height: 36,
-    padding: '0 30px',
-    transform: '0.5s',
-    marginBottom: '2',
-    '&:hover': {
-      background: 'linear-gradient(45deg, #00BABB 30%, #038EFD 90%)',
-      boxShadow: '0 8px 5px 2px rgba(255, 105, 135, .3)',
-    },
-  },
-  btnReset: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    border: 0,
-    borderRadius: 3,
-    color: '#fff !important',
-    height: 36,
-    padding: '0 30px',
-    transform: '0.5s',
-    marginBottom: '2',
-    '&:hover': {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      boxShadow: '0 8px 5px 2px rgba(255, 105, 135, .3)',
-    },
-  },
-  cardBG: {
-    backgroundColor: '#0ee5ff !important',
-  },
-  textHeader: {
-    background: '#2ac3ff',
-    color: '#8a000d',
-    fontSize: '30px !important',
-    padding: '0px 11px',
-    borderRadius: '2px',
-    lineHeight: '1.5 !important'
-  },
-  textHeaderCopy: {
-    background: '#2ac3ff',
-    color: '#8a000d',
-    fontSize: '20px !important',
-    padding: '3px 11px',
-    borderRadius: '2px',
-  },
-  textAreaBorder: {
-    color: '#fff',
-    paddingTop: '2rem',
-    border: '1px solid #000',
-    borderTop: 'none',
-    borderBottomLeftRadius: '5px',
-    borderBottomRightRadius: '5px',
-  }
-
-});
 
 
 function PdfTextExtractor() {
-  const classes = useStyles();
+ 
   const [text, setText] = useState('');
   const [downloadUrl, setDownloadUrl] = useState(null);
   const [extractionProgress, setExtractionProgress] = useState(0);
@@ -202,16 +108,16 @@ function PdfTextExtractor() {
   };
 
   return (
-    <Box padding={8} className={classes.root}>
+    <Box padding={8} className='pdfroot'>
 
-      <Box className={classes.box1}>
+      <Box className='box1'>
         <Grid container spacing={2} justifyContent={'center'}>
           <Grid item xs={6} display={'flex'} flexDirection={'column'} alignItems={'center'}>
-            <Card className={classes.cardBG} sx={{ textAlign: 'center', width: 345, maxWidth: 345 }}>
+            <Card className='cardBG' sx={{ textAlign: 'center', width: 345, maxWidth: 345 }}>
               <CardHeader title={' PDF Text Extraction '} />
               <CardContent>
                 <TextField
-                  className={classes.input}
+                  className='input'
                   type="file"
                   accept=".pdf"
                   onChange={handleFileChange}
@@ -219,8 +125,8 @@ function PdfTextExtractor() {
                 />
               </CardContent>
               <CardContent style={{ display: 'flex', justifyContent: 'space-between' }} >
-                <Button className={classes.btnReset} variant="contained" onClick={handleReset} >Reset</Button>
-                <Button className={classes.btnExtract} variant="contained" onClick={handleExtract} >Extract</Button>
+                <Button className='btnReset' variant="contained" onClick={handleReset} >Reset</Button>
+                <Button className='btnExtract' variant="contained" onClick={handleExtract} >Extract</Button>
               </CardContent>
             </Card>
           </Grid>
@@ -248,16 +154,16 @@ function PdfTextExtractor() {
             <Box>
               <Grid container spacing={1}>
                 <Grid item xs={12} md={6} textAlign={'left'}>
-                  <Typography variant='h4' className={classes.textHeader} >Ectracted Text:</Typography>
+                  <Typography variant='h4' className='textHeader' >Ectracted Text:</Typography>
                 </Grid>
 
                 <Grid item xs={12} md={6} textAlign={'right'}>
-                  <Box className={classes.textHeaderCopy}>
-                    <Button className={classes.btn} onClick={handleDownload}>Download Text</Button>
+                  <Box className='textHeaderCopy'>
+                    <Button className='btn' onClick={handleDownload}>Download Text</Button>
                     <CopyToClipboard text={text} onCopy={() => setCopyText("Copied")} >
 
                       <Button
-                        className={'btn-copy'}
+                        className='btn-copy'
                         fontSize={'17px'}
                         disabled={text === "" ? true : false}
                         onClick={() => {
@@ -270,7 +176,7 @@ function PdfTextExtractor() {
                   </Box>
                 </Grid>
               </Grid>
-              <Box className={classes.textAreaBorder}>
+              <Box className='textAreaBorder'>
                 <Typography variant="body1">{text}</Typography>
               </Box>
             </Box>
