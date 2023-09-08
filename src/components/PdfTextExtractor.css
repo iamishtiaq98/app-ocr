@@ -1,0 +1,105 @@
+.pdfroot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0rem 5rem 0rem;
+    min-height: 70vh;
+
+}
+
+.title {
+    color: #fff;
+}
+
+.box1 {
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    height: auto !important;
+    max-height: 30px !important;
+    padding: 7.5px 17px !important;
+}
+
+.extractedtext {
+    color: #fff;
+}
+
+.btn {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    border: 0;
+    border-radius: 3px;
+    color: #fff !important;
+    height: 36px;
+    padding: 0 30px;
+    transform: 0.5s;
+    margin-bottom: 2rem;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    box-shadow: 0 8px 5px 2px rgba(255, 105, 135, .3);
+}
+
+.btnExtract {
+    background: linear-gradient(45deg, #00BABB 30%, #038EFD 90%);
+    border: 0;
+    border-radius: 3px;
+    color: #fff !important;
+    height: 36px;
+    padding: 0 30px;
+    transform: 0.5s;
+    margin-bottom: 2rem;
+}
+
+.btnExtract:hover {
+    background: linear-gradient(45deg, #00BABB 30%, #038EFD 90%);
+    box-shadow: 0 8px 5px 2px rgba(255, 105, 135, .3);
+}
+
+.btnReset {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    border: 0;
+    border-radius: 3px;
+    color: #fff !important;
+    height: 36px;
+    padding: 0 30px;
+    transform: 0.5s;
+    margin-bottom: 2rem;
+}
+
+.btnReset:hover {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    box-shadow: 0 8px 5px 2px rgba(255, 105, 135, .3);
+}
+
+.cardBG {
+    background-color: #0ee5ff !important;
+}
+
+.textHeader {
+    background: #2ac3ff;
+    color: #8a000d;
+    font-size: 30px !important;
+    padding: 0px 11px;
+    border-radius: 2px;
+    line-height: 1.5 !important;
+}
+
+.textHeaderCopy {
+    background: #2ac3ff;
+    color: #8a000d;
+    font-size: 20px !important;
+    padding: 3px 11px;
+    border-radius: 2px;
+}
+
+.textAreaBorder {
+    color: #fff;
+    padding-top: 2rem;
+    border: 1px solid #000;
+    border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
