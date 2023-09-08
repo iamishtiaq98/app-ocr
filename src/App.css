@@ -1,12 +1,12 @@
 .App {
-  background: linear-gradient(90deg, rgba(2,142,253,0.9892157546612395) 20%, rgba(0,191,179,1) 85%),
+  background: url('../fonts/6216.jpg') no-repeat;
 }
 
 .Approot {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(90deg, rgba(2,142,253,0.9892157546612395) 20%, rgba(0,191,179,1) 85%);
+  background: url('../fonts/6216.jpg') no-repeat;
   height: 100%;
 
 }
