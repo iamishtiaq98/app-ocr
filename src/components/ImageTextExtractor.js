@@ -23,28 +23,38 @@ function ImageTextExtractor() {
 
   const handleFile = async (fileItems) => {
     if (fileItems.length > 0) {
-      const imageFile = fileItems[0].file;
 
-      setIsProcessing(true);
-      setPercentage(0);
+      const acceptedFileTypes = ['image/jpeg', 'image/png', 'image/gif']; // Define the accepted image file types
+      const fileType = fileItems[0].file.type;
 
-      try {
-        const worker = await createWorker({
-          logger: (info) => {
-            if (info.status === 'recognizing text') {
-              const progress = parseInt((info.progress * 100).toFixed(2));
-              setPercentage(progress);
-            }
-          },
-        });
-        await worker.load();
-        await worker.loadLanguage('urd+eng');
-        await worker.initialize('urd+eng');
-        const { data: { text } } = await worker.recognize(imageFile);
-        setOcrText(text);
-        await worker.terminate();
-      } catch (error) {
-        console.error(error);
+      if (!acceptedFileTypes.includes(fileType)) {
+        setMessage('Please select an image file (JPEG, PNG, or GIF).');
+      } else {
+        setMessage('');
+        const imageFile = fileItems[0].file;
+        setIsProcessing(true);
+        setPercentage(0);
+
+        try {
+          const worker = await createWorker({
+            logger: (info) => {
+              if (info.status === 'recognizing text') {
+                const progress = parseInt((info.progress * 100).toFixed(2));
+                setPercentage(progress);
+              }
+            },
+          });
+
+          await worker.load();
+          await worker.loadLanguage('urd+eng');
+          await worker.initialize('urd+eng');
+          const { data: { text } } = await worker.recognize(imageFile);
+          setOcrText(text);
+          await worker.terminate();
+
+        } catch (error) {
+          console.error(error);
+        }
       }
     } else {
       setOcrText('');

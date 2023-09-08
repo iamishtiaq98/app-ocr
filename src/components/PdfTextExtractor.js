@@ -20,10 +20,9 @@ function PdfTextExtractor() {
   const [copytext, setCopyText] = useState('Copy');
   const [fileError, setFileError] = useState('');
 
-
   const handleFileChange = (e) => {
     setInputValue(e.target.files[0]);
-    if (inputValue.type !== 'application/pdf') {
+    if (e.target.files[0].type !== 'application/pdf') {
       setFileError('Please select a PDF file.');
     } else {
       setFileError('');
@@ -64,8 +63,13 @@ function PdfTextExtractor() {
         }
 
         const data = await response.json();
-        setText(data.text);
-        setDownloadUrl(createDownloadUrl(data.text));
+        if (data.message === "success") {
+          setText(data.text);
+          setDownloadUrl(createDownloadUrl(data.text));
+        } else if (data.message === "error") {
+          setFileError(`Error:  ${data.text}`);
+        }
+
       } catch (error) {
         console.error('Error extracting text from PDF:', error);
       }
@@ -75,6 +79,7 @@ function PdfTextExtractor() {
 
   const handleReset = () => {
     setInputValue(Date.now());
+    setFileError('');
     setText('');
     setDownloadUrl('');
     setKey(key + 1)
@@ -118,6 +123,9 @@ function PdfTextExtractor() {
             <Card className='cardBG' sx={{ textAlign: 'center', width: 345, maxWidth: 345 }}>
               <CardHeader title={' PDF Text Extraction '} />
               <CardContent>
+                <Box>
+                  {fileError && <Typography className="error">{fileError}</Typography>}
+                </Box>
                 <TextField
                   className='input'
                   type="file"
