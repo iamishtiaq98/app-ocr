@@ -10,7 +10,7 @@ import './PdfTextExtractor.css'
 
 
 function PdfTextExtractor() {
- 
+
   const [text, setText] = useState('');
   const [downloadUrl, setDownloadUrl] = useState(null);
   const [extractionProgress, setExtractionProgress] = useState(0);
@@ -18,13 +18,18 @@ function PdfTextExtractor() {
   const [inputValue, setInputValue] = useState('');
   const [key, setKey] = useState(0)
   const [copytext, setCopyText] = useState('Copy');
+  const [fileError, setFileError] = useState('');
 
 
   const handleFileChange = (e) => {
     setInputValue(e.target.files[0]);
-
-
+    if (inputValue.type !== 'application/pdf') {
+      setFileError('Please select a PDF file.');
+    } else {
+      setFileError('');
+    }
   }
+
   const handleExtract = () => {
     const selectedFile = inputValue;
     if (!selectedFile) {
@@ -32,7 +37,6 @@ function PdfTextExtractor() {
     }
 
     const reader = new FileReader();
-
     reader.onload = async () => {
       const arrayBuffer = reader.result;
       const pdfData = btoa(
@@ -66,7 +70,6 @@ function PdfTextExtractor() {
         console.error('Error extracting text from PDF:', error);
       }
     };
-
     reader.readAsArrayBuffer(selectedFile);
   };
 
@@ -122,6 +125,9 @@ function PdfTextExtractor() {
                   onChange={handleFileChange}
                   key={key}
                 />
+
+                {fileError && <Typography className="error">{fileError}</Typography>}
+
               </CardContent>
               <CardContent style={{ display: 'flex', justifyContent: 'space-between' }} >
                 <Button className='btnReset' variant="contained" onClick={handleReset} >Reset</Button>
