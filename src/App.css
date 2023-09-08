@@ -1,5 +1,8 @@
 .App {
-  background: url('../fonts/6216.jpg') no-repeat;
+  background: url('./fonts/6216.jpg') no-repeat;
+  background-size: cover;
+  height: 100%;
+
 }
 
 .Approot {
