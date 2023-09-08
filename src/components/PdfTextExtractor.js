@@ -133,9 +133,6 @@ function PdfTextExtractor() {
                   onChange={handleFileChange}
                   key={key}
                 />
-
-                {fileError && <Typography className="error">{fileError}</Typography>}
-
               </CardContent>
               <CardContent style={{ display: 'flex', justifyContent: 'space-between' }} >
                 <Button className='btnReset' variant="contained" onClick={handleReset} >Reset</Button>
