@@ -7,7 +7,7 @@ import ImageTextExtractor from './components/ImageTextExtractor';
 
 
 function App() {
-  const classes = useStyles();
+  
   return (
     <div className='Approot App'>
       <BrowserRouter>
