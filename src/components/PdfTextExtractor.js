@@ -43,7 +43,7 @@ function PdfTextExtractor() {
       );
 
       try {
-        const url = 'http://localhost:5000/extract-pdf';
+        const url = 'https://api-ocr.vercel.app/extract-pdf';
         const headers = {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
