@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url('../fonts/6216.jpg') no-repeat;
+  background: url('./fonts/6216.jpg') no-repeat;
   height: 100%;
 
 }
