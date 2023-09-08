@@ -102,6 +102,10 @@
     border-top: none;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    background: #304c85;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: justify;
 }
 .error{
     color: rgb(218, 5, 5);
