@@ -8,7 +8,7 @@ const Footer = () => {
     
     return (
         <Paper className='footerRoot' elevation={3}>
-            <Typography variant="body2" component="p">
+            <Typography variant="body2" component="p" className='footerText'>
                 © {new Date().getFullYear()} IshiCoder.com
             </Typography>
         </Paper>
