@@ -1,0 +1,12 @@
+.footerRoot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 5px;
+    background: linear-gradient(90deg, rgba(2, 142, 253, 0.9892157546612395) 20%, rgba(0, 191, 179, 1) 85%);
+    color: #fff !important;
+}

@@ -1,0 +1,41 @@
+.headerRoot {
+    background: linear-gradient(90deg, rgba(2, 142, 253, 0.9892157546612395) 20%, rgba(0, 191, 179, 1) 85%);
+}
+
+.btn {
+    background: linear-gradient(45deg, #2f676c 10%, #FF8E53 90%);
+    border: 0;
+    border-radius: 3px;
+    color: #fff !important;
+    height: 36px;
+    padding-top: 1.2rem;
+    transform: 0.5s;
+    text-align: center;
+    text-decoration: none !important;
+    margin-bottom: 1rem;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    box-shadow: 0 3px 5px 2px rgba(255, 105, 135, .3);
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.navLink {
+    color: #fff !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    text-transform: Uppercase;
+    margin-right: 1rem !important;
+    text-decoration: none !important;
+}
+
+.navLink:hover {
+    color: #3B047D !important;
+    cursor: pointer !important;
+}
