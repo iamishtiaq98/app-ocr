@@ -2,6 +2,14 @@
     background: linear-gradient(90deg,rgba(235, 247, 244, 0.99) 20%,#009f73 85%);
 }
 
+@media screen and (max-width: 512px){
+    
+.logohdr {
+    margin-left: 2rem;
+    width: 180px;
+  }
+}
+
 .btn {
     background: linear-gradient(45deg, #2f676c 10%, #FF8E53 90%);
     border: 0;

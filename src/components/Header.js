@@ -21,9 +21,9 @@ const Header = () => {
   return (
     <>
       <AppBar className='headerRoot' position="static">
-        <Toolbar>
+        <Toolbar style={{ paddingTop: '1rem'}} >
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <img src={LogoImg} alt="Logo" width="248" height="60" style={{marginLeft: '2rem'}} />
+            <img className='logohdr' src={LogoImg} alt="Logo" width="248" height="60" style={{marginLeft: '2rem'}} />
           </Typography>
 
           {isLGScreen ?
