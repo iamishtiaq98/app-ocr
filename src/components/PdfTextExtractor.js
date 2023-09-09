@@ -158,42 +158,38 @@ function PdfTextExtractor() {
       )}
 
       {text && (
-
-        <Grid container spacing={2} padding={4} justifyContent={'center'} textAlign={'center'}>
-          <Grid item xs={10}>
-            <Box>
-              <Grid container spacing={1}>
-                <Grid item xs={12} md={6} textAlign={'left'}>
-                  <Typography variant='h4' className='textHeader' >Ectracted Text:</Typography>
-                </Grid>
-
-                <Grid item xs={12} md={6} textAlign={'right'}>
-                  <Box className='textHeaderCopy'>
-                    <Button className='btn' onClick={handleDownload}>Download Text</Button>
-                    <CopyToClipboard text={text} onCopy={() => setCopyText("Copied")} >
-
-                      <Button
-                        className='btn-copy'
-                        fontSize={'17px'}
-                        disabled={text === "" ? true : false}
-                        onClick={() => {
-                          setTimeout(() => { setCopyText("Copy") }, 2000)
-                        }}
-                      >
-                        <CopyAll /> {copytext}
-                      </Button>
-                    </CopyToClipboard>
-                  </Box>
-                </Grid>
-              </Grid>
+        <Box marginTop={'2rem'}>
+          <Card className='mui-card-c'>
+            <CardHeader
+              title=" Extracted Text"
+              action={
+                <>
+                  <Button className='btn' onClick={handleDownload}>Save Text</Button>
+                  <CopyToClipboard text={text} onCopy={() => setCopyText("Copied")} >
+                    <Button
+                      className='btn-copy'
+                      fontSize={'17px'}
+                      disabled={text === "" ? true : false}
+                      onClick={() => {
+                        setTimeout(() => { setCopyText("Copy") }, 2000)
+                      }}
+                    >
+                      <CopyAll /> {copytext}
+                    </Button>
+                  </CopyToClipboard>
+                </>
+              }
+            />
+            <CardContent>
               <Box className='textAreaBorder'>
                 <Typography variant="body1">{text}</Typography>
               </Box>
-            </Box>
-          </Grid>
-        </Grid>
-      )}
-    </Box>
+            </CardContent>
+          </Card>
+        </Box>
+      )
+      }
+    </Box >
   );
 }
 

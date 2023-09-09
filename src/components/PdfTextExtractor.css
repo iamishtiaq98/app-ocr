@@ -95,9 +95,10 @@
     border-radius: 2px;
 }
 
+
 .textAreaBorder {
     color: #fff;
-    padding-top: 2rem;
+    padding-top: 1rem;
     border: 1px solid #000;
     border-top: none;
     border-bottom-left-radius: 5px;
@@ -106,7 +107,12 @@
     padding-left: 10px;
     padding-right: 10px;
     text-align: justify;
+    overflow: scroll;
+    overflow-x: unset;
+    max-height: 500px;
+
 }
-.error{
+
+.error {
     color: rgb(218, 5, 5);
 }

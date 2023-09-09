@@ -94,3 +94,10 @@
   border-radius: 2px !important;
   background: linear-gradient(130deg,#ff7a18,#af002d 41.07%,#319197 76.05%) !important;
 }
+
+@media screen and (max-width: 512px) {
+  .MuiCardHeader-title{
+    font-size: 19px !important; 
+    margin-right: 3px !important;
+  }
+}
