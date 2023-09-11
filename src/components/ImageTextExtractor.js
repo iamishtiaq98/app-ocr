@@ -98,39 +98,36 @@ function ImageTextExtractor() {
         </Grid>
 
         {ocrText && (
-          <Grid container spacing={2} padding={4} justifyContent={'center'} textAlign={'center'}>
-            <Grid item xs={10}>
-              <Box>
-                <Grid container spacing={1}>
-                  <Grid item xs={12} md={6} textAlign={'left'}>
-                    <Typography variant='h4' className='textHeader' >Analyzed Text:</Typography>
-                  </Grid>
-                  <Grid item xs={12} md={6} textAlign={'right'}>
-                    <Box className='textHeaderCopy'>
-                      <CopyToClipboard text={ocrText} onCopy={() => setText("Copied")} >
-                        <Button
-                          className='btn-copy'
-                          fontSize={'17px'}
-                          disabled={ocrText === "" ? true : false}
-                          onClick={() => {
-                            setTimeout(() => { setText("Copy") }, 2000)
-                          }}
-                        >
-                          <CopyAll /> {text}
-                        </Button>
-                      </CopyToClipboard>
-                    </Box>
 
-                  </Grid>
-                </Grid>
-
+          <Box marginTop={'2rem'}>
+            <Card className='mui-card-c'>
+              <CardHeader
+                title=" Extracted Text"
+                action={
+                  <>
+                    <CopyToClipboard text={ocrText} onCopy={() => setText("Copied")} >
+                      <Button
+                        className='btn-copy'
+                        fontSize={'17px'}
+                        disabled={ocrText === "" ? true : false}
+                        onClick={() => {
+                          setTimeout(() => { setText("Copy") }, 2000)
+                        }}
+                      >
+                        <CopyAll /> {text}
+                      </Button>
+                    </CopyToClipboard>
+                  </>
+                }
+              />
+              <CardContent>
                 <Box className='textAreaBorder'>
                   <Typography variant="body1">{ocrText}</Typography>
                 </Box>
+              </CardContent>
+            </Card>
+          </Box>
 
-              </Box>
-            </Grid>
-          </Grid>
         )}
       </Box>
     </ >
